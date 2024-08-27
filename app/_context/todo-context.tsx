@@ -3,6 +3,7 @@
 import {
   createContext,
   PropsWithChildren,
+  Suspense,
   useContext,
   useEffect,
   useState,
@@ -20,8 +21,10 @@ const TodoContext = createContext<TTodoContext | undefined>(undefined);
 
 export const TodoProvider = ({ children }: PropsWithChildren) => {
   const [todoList, setTodoList] = useState<TTodo[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   useEffect(() => {
+    setIsLoading(true);
     const storageTodoList = JSON.parse(
       localStorage.getItem("todoList") || "[]"
     );
@@ -29,8 +32,10 @@ export const TodoProvider = ({ children }: PropsWithChildren) => {
   }, []);
 
   useEffect(() => {
-    localStorage.setItem("todoList", JSON.stringify(todoList));
-  }, [todoList]);
+    if (isLoading) {
+      localStorage.setItem("todoList", JSON.stringify(todoList));
+    }
+  }, [todoList, isLoading]);
 
   const addTodo = (title: string) => {
     setTodoList(prev => [...prev, { id: Date.now(), title, completed: false }]);

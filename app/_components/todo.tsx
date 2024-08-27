@@ -17,6 +17,7 @@ const Todo = ({ id, title, completed }: TTodo) => {
           name="completed"
           id="completed"
           checked={completed ? true : false}
+          readOnly
         />
         <S.CustomCheckBox isCheck={completed} onClick={handleCheckBoxClick}>
           <S.CheckIcon viewBox="0 0 24 24">
