@@ -3,3 +3,4 @@ export interface TTodo {
   title: string;
   completed: boolean;
 }
+export type SortType = "all" | "completed" | "inComplete";

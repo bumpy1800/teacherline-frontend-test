@@ -1,9 +1,10 @@
 "use client";
 
 import styled from "@emotion/styled";
-import Input from "./_components/todo-create";
+import TodoCreate from "./_components/todo-create";
 import TodoList from "./_components/todo-list";
 import { TodoProvider } from "./_context/todo-context";
+import TodoFilter from "./_components/todo-filter";
 
 export default function Home() {
   return (
@@ -13,10 +14,11 @@ export default function Home() {
           <S.Header>
             <S.Title>To Do list</S.Title>
             <S.Nav>
-              <Input />
+              <TodoCreate />
             </S.Nav>
           </S.Header>
           <S.Section>
+            <TodoFilter />
             <TodoList />
           </S.Section>
         </S.Wrap>
@@ -56,7 +58,7 @@ const S = {
   `,
   Section: styled.section`
     padding: 14.8px 12px 0px 8px;
-    max-height: 100%;
+    max-height: 67vh;
     overflow-y: auto;
   `,
 };
