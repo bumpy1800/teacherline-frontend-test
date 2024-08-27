@@ -3,22 +3,25 @@
 import styled from "@emotion/styled";
 import Input from "./_components/input";
 import TodoList from "./_components/todo-list";
+import { TodoProvider } from "@/context/todo-context";
 
 export default function Home() {
   return (
-    <S.Main>
-      <S.Wrap>
-        <S.Header>
-          <S.Title>To Do list</S.Title>
-          <S.Nav>
-            <Input />
-          </S.Nav>
-        </S.Header>
-        <S.Section>
-          <TodoList />
-        </S.Section>
-      </S.Wrap>
-    </S.Main>
+    <TodoProvider>
+      <S.Main>
+        <S.Wrap>
+          <S.Header>
+            <S.Title>To Do list</S.Title>
+            <S.Nav>
+              <Input />
+            </S.Nav>
+          </S.Header>
+          <S.Section>
+            <TodoList />
+          </S.Section>
+        </S.Wrap>
+      </S.Main>
+    </TodoProvider>
   );
 }
 
