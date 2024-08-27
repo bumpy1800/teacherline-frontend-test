@@ -58,7 +58,5 @@ const S = {
   `,
   Section: styled.section`
     padding: 14.8px 12px 0px 8px;
-    max-height: 67vh;
-    overflow-y: auto;
   `,
 };

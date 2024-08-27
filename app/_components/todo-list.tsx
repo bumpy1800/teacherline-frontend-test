@@ -26,6 +26,8 @@ const S = {
     flex-direction: column;
     align-items: center;
     gap: 16px;
+    max-height: 63vh;
+    overflow-y: auto;
     & li {
       width: 100%;
     }
