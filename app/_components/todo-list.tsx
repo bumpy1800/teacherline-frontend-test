@@ -1,18 +1,19 @@
 import styled from "@emotion/styled";
 import Todo from "./todo";
+import { useTodoContext } from "../_context/todo-context";
+import { TTodo } from "../_types/todo.type";
 
 const TodoList = () => {
+  const { todoList } = useTodoContext();
   return (
     <S.Ul>
-      <li>
-        <Todo />
-      </li>
-      <li>
-        <Todo />
-      </li>
-      <li>
-        <Todo />
-      </li>
+      {todoList.map((todo: TTodo) => {
+        return (
+          <li key={todo.id}>
+            <Todo {...todo} />
+          </li>
+        );
+      })}
     </S.Ul>
   );
 };

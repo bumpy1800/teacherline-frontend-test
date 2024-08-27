@@ -1,9 +1,9 @@
 "use client";
 
 import styled from "@emotion/styled";
-import Input from "./_components/input";
+import Input from "./_components/todo-create";
 import TodoList from "./_components/todo-list";
-import { TodoProvider } from "@/context/todo-context";
+import { TodoProvider } from "./_context/todo-context";
 
 export default function Home() {
   return (

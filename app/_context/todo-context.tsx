@@ -7,12 +7,7 @@ import {
   useEffect,
   useState,
 } from "react";
-
-interface TTodo {
-  id: number;
-  title: string;
-  completed: boolean;
-}
+import { TTodo } from "../_types/todo.type";
 
 interface TTodoContext {
   todoList: TTodo[];
@@ -26,7 +21,9 @@ export const TodoProvider = ({ children }: PropsWithChildren) => {
   const [todoList, setTodoList] = useState<TTodo[]>([]);
 
   useEffect(() => {
-    const storageTodoList = JSON.parse(localStorage.getItem("todoList") || " ");
+    const storageTodoList = JSON.parse(
+      localStorage.getItem("todoList") || "[]"
+    );
     setTodoList(storageTodoList);
   }, []);
 

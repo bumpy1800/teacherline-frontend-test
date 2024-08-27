@@ -1,17 +1,18 @@
 import styled from "@emotion/styled";
+import { TTodo } from "../_types/todo.type";
 
-const Todo = () => {
+const Todo = ({ title, completed }: TTodo) => {
   return (
     <S.TodoBox>
       <S.CheckBoxWrap>
         <S.HideCheckBox type="checkbox" name="completed" id="completed" />
-        <S.CustomCheckBox>
+        <S.CustomCheckBox isCheck={completed}>
           <S.CheckIcon viewBox="0 0 24 24">
             <polyline points="19 7 10 17 5 12" />
           </S.CheckIcon>
         </S.CustomCheckBox>
       </S.CheckBoxWrap>
-      <S.TodoTitle>asd</S.TodoTitle>
+      <S.TodoTitle>{title}</S.TodoTitle>
     </S.TodoBox>
   );
 };
@@ -42,7 +43,7 @@ const S = {
     stroke: #36cf00;
     stroke-width: 2px;
   `,
-  CustomCheckBox: styled.div`
+  CustomCheckBox: styled.div<{ isCheck: boolean }>`
     display: inline-block;
     width: 24px;
     height: 24px;
@@ -51,7 +52,7 @@ const S = {
     border-radius: 5px;
 
     svg {
-      visibility: visible;
+      visibility: ${({ isCheck }) => (isCheck ? "visible" : "hidden")};
     }
   `,
   HideCheckBox: styled.input`
