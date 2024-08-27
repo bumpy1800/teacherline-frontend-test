@@ -2,6 +2,7 @@ import { css } from "@emotion/react";
 // import theme from "./theme";
 
 const globals = css`
+  @import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
   *,
   *:before,
   *:after {
@@ -11,6 +12,7 @@ const globals = css`
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+    font-family: "Ubuntu", "Nanum", "Pretendard";
   }
 
   html,

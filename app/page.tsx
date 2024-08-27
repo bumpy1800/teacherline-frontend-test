@@ -1,95 +1,59 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+"use client";
+
+import styled from "@emotion/styled";
+import Input from "./_components/input";
+import TodoList from "./_components/todo-list";
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+    <S.Main>
+      <S.Wrap>
+        <S.Header>
+          <S.Title>To Do list</S.Title>
+          <S.Nav>
+            <Input />
+          </S.Nav>
+        </S.Header>
+        <S.Section>
+          <TodoList />
+        </S.Section>
+      </S.Wrap>
+    </S.Main>
+  );
 }
+
+const S = {
+  Main: styled.main`
+    width: 390px;
+    height: 100vh;
+    background-color: #3f72af;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  `,
+  Wrap: styled.div`
+    width: 350px;
+    height: 748px;
+    border-radius: 10px;
+    background-color: #f9f7f7;
+    padding: 20px 15px;
+  `,
+  Header: styled.header`
+    border-bottom: 2px solid #dddddd;
+  `,
+  Title: styled.h1`
+    font-size: 40px;
+    line-height: 45.96px;
+    color: #112d4e;
+    text-align: center;
+  `,
+  Nav: styled.nav`
+    padding: 19px 35px 15px 35px;
+  `,
+  Section: styled.section`
+    padding: 14.8px 12px 0px 8px;
+    max-height: 100%;
+    overflow-y: auto;
+  `,
+};
