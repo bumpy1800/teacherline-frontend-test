@@ -1,12 +1,24 @@
 import styled from "@emotion/styled";
 import { TTodo } from "../_types/todo.type";
+import { useTodoContext } from "../_context/todo-context";
 
-const Todo = ({ title, completed }: TTodo) => {
+const Todo = ({ id, title, completed }: TTodo) => {
+  const { toggleTodo } = useTodoContext();
+
+  const handleCheckBoxClick = () => {
+    toggleTodo(id);
+  };
+
   return (
     <S.TodoBox>
       <S.CheckBoxWrap>
-        <S.HideCheckBox type="checkbox" name="completed" id="completed" />
-        <S.CustomCheckBox isCheck={completed}>
+        <S.HideCheckBox
+          type="checkbox"
+          name="completed"
+          id="completed"
+          checked={completed ? true : false}
+        />
+        <S.CustomCheckBox isCheck={completed} onClick={handleCheckBoxClick}>
           <S.CheckIcon viewBox="0 0 24 24">
             <polyline points="19 7 10 17 5 12" />
           </S.CheckIcon>
